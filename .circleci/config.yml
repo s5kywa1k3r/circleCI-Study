@@ -9,7 +9,7 @@ jobs:
 
     deploy:
         master:
-            branch: master
+            enabled: true
         steps:
             - run:
                 name: Deploy Over SSH
