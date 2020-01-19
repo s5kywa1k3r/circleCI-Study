@@ -13,7 +13,7 @@ services:
         #    - db_test
         #    - front_test
         volumes:
-            - ~/github/API/:/home/API
+            - /home/s5kywa1k3r/circleCI-Study/API/:/home/API
             # - ./superdocker/test_api:/home/test_api
             - ./superdocker/Main_Server:/home/super
 
