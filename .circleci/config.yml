@@ -6,3 +6,9 @@ jobs:
     steps:
       - checkout
       - run: echo "Hello World"
+
+deployment:
+    master:
+        bracn: master
+        commands:
+            - ./deployment.sh
