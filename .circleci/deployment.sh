@@ -1,4 +1,4 @@
-ssh ubuntu@ec2-13-209-41-76.ap-northeast-2.compute.amazonaws.com -i .KJ_main.pem -o StrictHostKeyChecking=no <<'ENDSSH'
+#ssh ubuntu@ec2-13-209-41-76.ap-northeast-2.compute.amazonaws.com -i .KJ_main.pem -o StrictHostKeyChecking=no <<'ENDSSH'
 ~/setup_backend.sh
-exit
-ENDSSH
+#exit
+#ENDSSH
