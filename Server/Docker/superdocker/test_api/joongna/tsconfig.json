@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "declaration": false,
+        "noImplicitAny": true,
+        "allowJs": true,
+        "removeComments": true,
+        "outDir": "./dist"
+    },
+    "include": ["product_search"],
+    "exclude": ["node_modules", "dist"]
+}

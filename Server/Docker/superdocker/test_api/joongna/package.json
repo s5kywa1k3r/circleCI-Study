@@ -1,0 +1,24 @@
+{
+    "name": "joongna",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "ts-node product_search/src/index.ts",
+        "build": "tsc"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "request": "^2.88.0",
+        "request-promise": "^4.2.5"
+    },
+    "devDependencies": {
+        "@types/request": "^2.48.4",
+        "@types/request-promise": "^4.1.45",
+        "ts-node": "^8.5.4",
+        "typescript": "^3.7.4"
+    }
+}

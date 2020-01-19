@@ -1,0 +1,78 @@
+version: '3'
+
+services:
+
+    ################
+    ##### TEST #####
+    ################
+    super_test:
+        build: ./superdocker
+        image: super:test
+
+        #depends_on:
+        #    - db_test
+        #    - front_test
+        volumes:
+            - ~/github/API/:/home/API
+            # - ./superdocker/test_api:/home/test_api
+            - ./superdocker/Main_Server:/home/super
+
+        ports:
+            - "30200:3000"
+
+        command:
+            - /bin/bash
+            - -c
+            - |
+                cd /home/API
+                npm install && npm run build
+                #cd ../../test_api/joongna
+                #npm install && npm run build
+                cd ../super
+                npm install && npm run dev
+
+    db_test:
+        image: mysql:5.7
+        environment:
+            - MYSQL_ROOT_PASSWORD=secure
+
+    front_test:
+        build: ./frontdocker
+        image: front:test
+                #service nginx reload
+
+        #volumes:
+        #    - ./frontdocker/biccon.github.io:/home/front
+
+        ports:
+            - "30280:80"
+
+        command:
+            - /bin/bash
+            - -c
+            - |
+                cp -r /home/front/* /usr/share/nginx/html/
+                cat /usr/share/nginx/html
+                nginx -g "daemon off;"
+
+    ##################
+    ##### STABLE #####
+    ##################
+    super:
+        build: ./superdocker
+        image: super:stable
+
+        volumes:
+            - ./superdocker/API/ExpressJS-Study:/home/api
+        ports:
+            - "30001:3000"
+        command:
+            - /bin/bash
+            - -c
+            - |
+                cd /home/api/API/11st
+                npm install && npm run build
+                cd ../joongna
+                npm install && npm run build
+                cd ../../express-for-typescript
+                npm install && npm run build && npm start
