@@ -7,11 +7,13 @@ jobs:
             - checkout
             - run: echo "Hello World"
 
-    deployment:
+    deploy:
         master:
             branch: master
-            commands:
-                - ./deployment.sh
+        steps:
+            - run:
+                name: Deploy Over SSH
+                command: ssh ubuntu@ec2-13-209-41-76.ap-northeast-2.compute.amazonaws.com "./deployment.sh"
 
 workflows:
     version: 2
