@@ -8,7 +8,7 @@ jobs:
             - run: echo "Hello World"
 
     deploy:
-        master:
+        machine:
             enabled: true
         steps:
             - run:
@@ -23,7 +23,7 @@ workflows:
                 filters:
                     branches:
                         only: master
-            - deployment:
+            - deploy:
                 requires:
                     - build
                 filters:
