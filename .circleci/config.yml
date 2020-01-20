@@ -5,7 +5,9 @@ jobs:
             - image: circleci/ruby:2.4.2-jessie-node
         steps:
             - checkout
-            - run: echo "Hello World"
+            - run: 
+                name: Build nothing
+                command: exit
 
     deploy:
         machine:
@@ -13,6 +15,7 @@ jobs:
         steps:
             - run:
                 name: Deploy Over SSH
+# command: ssh <username>@<hostname> "실행 명령어 혹은 실행 스크립트" 로 deploy 함.
                 command: ssh ubuntu@ec2-13-209-41-76.ap-northeast-2.compute.amazonaws.com "./deployment.sh"
 
 workflows:
