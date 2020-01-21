@@ -16,8 +16,9 @@ jobs:
             - run:
                 name: Deploy Over SSH
 # command: ssh <username>@<hostname> "실행 명령어 혹은 실행 스크립트" 로 deploy 함.
-                command: ssh ubuntu@ec2-13-209-41-76.ap-northeast-2.compute.amazonaws.com "./deployment.sh"
+                #command: ssh ubuntu@ec2-13-209-41-76.ap-northeast-2.compute.amazonaws.com "./deployment.sh"
 
+                command: ssh ubuntu@ec2-13-209-41-76.ap-northeast-2.compute.amazonaws.com "cd /home/s5kywa1k3r/circleCI-Study/Server/Script && ./deployment.sh"
 workflows:
     version: 2
     build-deploy:
