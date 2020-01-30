@@ -1,4 +1,4 @@
-name: Hello world!
+name: Hello_world!
 
 on: [push]
 
@@ -18,7 +18,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    steps
+    steps:
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
