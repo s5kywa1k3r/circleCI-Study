@@ -28,3 +28,4 @@ jobs:
           script: |
             sleep 5 
             whoami
+            ls -al
