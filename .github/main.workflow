@@ -1,4 +1,4 @@
-action "Run deploy script" {
+action "deploy_ssh" {
   uses = "maddox/actions/ssh@master"
   args = "whoami"
   secrets = [
