@@ -29,4 +29,4 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
-        script: mkdir helloworld
+        script: clear && echo $HOST
