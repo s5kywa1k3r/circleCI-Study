@@ -21,7 +21,7 @@ jobs:
         echo test, and deploy your project.
         
   deploy:
-    #runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
@@ -29,4 +29,4 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
-        script: clear && whoami
+        script: mkdir helloworld
