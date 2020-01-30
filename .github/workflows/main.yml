@@ -19,8 +19,18 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: ESLint Action
-        uses: hallee/eslint-action@1.0.1
+      - name: TSLint checks
+        uses: mooyoul/tslint-actions@v1.1.1
+        with:
+          # Github Token
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Path of TypeScript Project file
+          #project: # optional
+          # Path of TSLint configuration
+          #config: # optional, default is tslint.json
+          # Glob pattern to match
+          #pattern: # optional
+        
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
