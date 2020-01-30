@@ -25,7 +25,7 @@ jobs:
           # Github Token
           token: ${{ secrets.GITHUB_TOKEN }}
           # Path of TypeScript Project file
-          #project: # optional
+          project: /
           # Path of TSLint configuration
           #config: # optional, default is tslint.json
           # Glob pattern to match
