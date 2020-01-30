@@ -32,7 +32,7 @@ jobs:
           # Path of TypeScript Project file
           #project: /API
           # Path of TSLint configuration
-          config: tslint2.json
+          config: tslint.json
           # Glob pattern to match
           pattern: '*.ts'
       - name: executing remote ssh commands using ssh key
