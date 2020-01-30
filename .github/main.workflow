@@ -1,21 +1,9 @@
-workflow "New workflow" {
-  on = "pull_request"
-  resolves = ["Bundle Size"]
+workflow "push" {
+  on = "push"
+  resolves = ["ESLint"]
 }
 
-action "Install" {
-  uses = "actions/npm@master"
-  args = "install"
-}
-
-action "Build" {
-  needs = ["Install"]
-  uses = "actions/npm@master"
-  args = "run build"
-}
-
-action "Bundle Size" {
-  needs = ["Build"]
-  uses = "./actions/bundle-size"
+action "ESLint" {
+  uses = "hallee/eslint-action@master"
   secrets = ["GITHUB_TOKEN"]
 }
