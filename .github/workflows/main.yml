@@ -31,7 +31,9 @@ jobs:
           config: tslint2.json
           # Glob pattern to match
           pattern: '*.ts'
-        
+      - name: TSLint ls -al
+        run: |
+          ls -al
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
