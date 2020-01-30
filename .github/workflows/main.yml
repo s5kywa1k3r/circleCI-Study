@@ -27,7 +27,7 @@ jobs:
           # Path of TypeScript Project file
           #project: /API
           # Path of TSLint configuration
-          config: tslint.json
+          config: tslint2.json
           # Glob pattern to match
           pattern: '*.ts'
         
