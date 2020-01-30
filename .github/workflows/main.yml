@@ -25,11 +25,11 @@ jobs:
           # Github Token
           token: ${{ secrets.GITHUB_TOKEN }}
           # Path of TypeScript Project file
-          project: /API
+          #project: /API
           # Path of TSLint configuration
           #config: # optional, default is tslint.json
           # Glob pattern to match
-          #pattern: # optional
+          pattern: '*.ts'
         
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
