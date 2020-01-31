@@ -1,4 +1,4 @@
-name: Hello_world!
+name: main.yml
 
 on: 
   push: # push의 경우에만 실행한다.
@@ -10,22 +10,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # Docker에 현 repository에 있는 파일을 복사
     - name: Checkout a Git repository at a particular version
       uses: actions/checkout@v2
       with:
-        repository: s5kywa1k3r/circleCI-Study # default is ${{ github.repository }}
+        repository: s5kywa1k3r/circleCI-Study@master # default is ${{ github.repository }}
     
-    - name: TSLint checks
-      uses: mooyoul/tslint-actions@master
-      with:
-        # Github Token
-        token: ${{ secrets.GITHUB_TOKEN }}
-        # Path of TypeScript Project file
-        #project: ??
-        # Path of TSLint configuration
-        config: Test/tslint.json
-        # Glob pattern to match
-        pattern: '*.ts'
+    # # TSLint check
+    # - name: TSLint checks
+    #   uses: mooyoul/tslint-actions@master
+    #   with:
+    #     # Github Token
+    #     token: ${{ secrets.GITHUB_TOKEN }}
+    #     # Path of TypeScript Project file
+    #     #project: ??
+    #     # Path of TSLint configuration
+    #     config: Test/tslint.json
+    #     # Glob pattern to match
+    #     pattern: '*.ts'
     
     - name: Setup Node.js for use with actions
       uses: actions/setup-node@v1.1.0

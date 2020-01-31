@@ -1,0 +1,27 @@
+name: lint.yml
+
+on: 
+  push: # push의 경우에만 실행한다.
+    branches: 
+      - master # master branch에만 발생했을 경우 실행한다.
+
+jobs:
+  lint_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout a Git repository at a particular version
+      uses: actions/checkout@v2
+      
+    # TSLint check
+    - name: TSLint checks
+      uses: mooyoul/tslint-actions@master
+      with:
+        # Github Token
+        token: ${{ secrets.GITHUB_TOKEN }}
+        # Path of TypeScript Project file
+        #project: ??
+        # Path of TSLint configuration
+        config: Test/tslint.json
+        # Glob pattern to match
+        pattern: '*.ts'
