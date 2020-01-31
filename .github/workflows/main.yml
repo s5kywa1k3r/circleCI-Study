@@ -1,40 +1,35 @@
 name: Hello_world!
 
-on: [push]
+on: 
+  push: # push의 경우에만 실행한다.
+    branches: 
+      - master # master branch에만 발생했을 경우 실행한다.
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
-        ls -al
+    - name: Checkout a Git repository at a particular version
+      uses: actions/checkout@v2
+      with:
+        repository: s5kywa1k3r/circleCI-Study # default is ${{ github.repository }}
+    
+    - name: TSLint checks
+      uses: mooyoul/tslint-actions@master
+      with:
+        # Github Token
+        token: ${{ secrets.GITHUB_TOKEN }}
+        # Path of TypeScript Project file
+        #project: ??
+        # Path of TSLint configuration
+        config: tslint2.json
+        # Glob pattern to match
+        pattern: '*.ts'
 
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: TSLint ls -al
-        run: |
-          ls -al
-      - name: TSLint checks
-        uses: mooyoul/tslint-actions@master
-        with:
-          # Github Token
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # Path of TypeScript Project file
-          #project: /API
-          # Path of TSLint configuration
-          config: tslint.json
-          # Glob pattern to match
-          pattern: '*.ts'
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
