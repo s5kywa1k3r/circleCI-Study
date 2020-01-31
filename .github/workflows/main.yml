@@ -6,7 +6,7 @@ on:
       - master # master branch에만 발생했을 경우 실행한다.
 
 jobs:
-  build:
+  build_and_test:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,9 +23,24 @@ jobs:
         # Path of TypeScript Project file
         #project: ??
         # Path of TSLint configuration
-        config: tslint.json
+        config: Test/tslint.json
         # Glob pattern to match
         pattern: '*.ts'
+    
+    - name: Setup Node.js for use with actions
+      uses: actions/setup-node@v1.1.0
+      with:
+        # Version Spec of the version to use.  Examples: 10.x, 10.15.1, >=10.15.0, lts
+        #version: # optional, default is 10.x
+        node-version: '12.14.0'
+        # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN
+        registry-url: # optional
+        # Optional scope for authenticating against scoped registries
+        scope: # optional
+      run: npm install
+      run: npm i -D typescript jest @types/jest
+      run: npm i -D ts-jest
+      run: npm test
 
   deploy:
     runs-on: ubuntu-latest
