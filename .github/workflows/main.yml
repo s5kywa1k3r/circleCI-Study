@@ -37,9 +37,12 @@ jobs:
         # registry-url: # optional
         # Optional scope for authenticating against scoped registries
         # scope: # optional
-    - run: npm install
-    - run: npm i -D typescript jest @types/jest
-    - run: npm i -D ts-jest
+    
+    - run: |
+          cd Test
+          npm install
+          npm i -D typescript jest @types/jest
+          npm i -D ts-jest
     - run: npm test
 
   deploy:
