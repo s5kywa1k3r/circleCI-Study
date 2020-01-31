@@ -1,0 +1,38 @@
+{
+    "name": "tsjest",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+      "test": "test"
+    },
+    "dependencies": {},
+    "devDependencies": {
+      "@types/jest": "^25.1.1",
+      "jest": "^25.1.0",
+      "ts-jest": "^25.1.0",
+      "typescript": "^3.7.5"
+    },
+    "scripts": {
+      "test": "jest"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "jest": {
+      "transform": {
+        "^.+\\.ts$": "ts-jest"
+      },
+      "testRegex": "\\.test\\.ts$",
+      "moduleFileExtensions": [
+        "ts", "js"
+      ],
+      "globals": {
+        "ts-jest": {
+          "enableTsDiagnostics": true
+        }
+      }
+    }
+    
+  }
+  
