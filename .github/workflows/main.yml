@@ -37,13 +37,16 @@ jobs:
         # registry-url: # optional
         # Optional scope for authenticating against scoped registries
         # scope: # optional
-    
-    - run: |
+    - name: Setup test environment
+      run: |
           cd Test
           npm install
           npm i -D typescript jest @types/jest
           npm i -D ts-jest
-    - run: npm test
+    - name: Run npm test
+      run: |
+          cd Test
+          npm test
 
   deploy:
     runs-on: ubuntu-latest
