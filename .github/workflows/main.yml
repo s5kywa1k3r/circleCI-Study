@@ -34,13 +34,13 @@ jobs:
         #version: # optional, default is 10.x
         node-version: '12.14.0'
         # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN
-        registry-url: # optional
+        # registry-url: # optional
         # Optional scope for authenticating against scoped registries
-        scope: # optional
-      run: npm install
-      run: npm i -D typescript jest @types/jest
-      run: npm i -D ts-jest
-      run: npm test
+        # scope: # optional
+    - run: npm install
+    - run: npm i -D typescript jest @types/jest
+    - run: npm i -D ts-jest
+    - run: npm test
 
   deploy:
     runs-on: ubuntu-latest
